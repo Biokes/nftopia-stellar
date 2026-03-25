@@ -16,7 +16,7 @@ import { ListingStatus } from './interfaces/listing.interface';
 import { JwtAuthGuard } from '../../auth/jwt-auth.guard';
 import type { Request as ExpressRequest } from 'express';
 
-@Controller('api/v1/listings')
+@Controller('listings')
 export class ListingController {
   constructor(private readonly listingService: ListingService) {}
 
