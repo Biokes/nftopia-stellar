@@ -5,7 +5,6 @@ import { Listing } from './entities/listing.entity';
 import { StellarNft } from '../../nft/entities/stellar-nft.entity';
 import { ListingStatus } from './interfaces/listing.interface';
 import { CreateListingDto } from './dto/create-listing.dto';
-import { BuyNftDto } from './dto/buy-nft.dto';
 
 const mockListingRepo = {
   findOne: jest.fn(),
@@ -93,9 +92,7 @@ describe('ListingService', () => {
       tokenId: 'T',
       owner: 'old',
     });
-    const res = await service.buy('l1', 'buyer1', {
-      paymentMethod: 'X',
-    } as BuyNftDto);
+    const res = await service.buy('l1', 'buyer1');
     expect(res.success).toBe(true);
     expect(mockNftRepo.save).toHaveBeenCalled();
     expect(mockListingRepo.save).toHaveBeenCalled();
